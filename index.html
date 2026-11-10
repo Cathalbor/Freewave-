@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b0f"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css"><title>Freewave</title>
+</head>
+<body>
+<div class="app">
+  <header><div class="brand"><span class="brandmark">♫</span><div><b>freewave</b><small>music without a monthly bill</small></div></div><button id="settingsBtn" class="iconbtn" aria-label="Settings">⚙</button></header>
+  <main>
+    <section class="hero"><p class="eyebrow">YOUR SOUND. YOUR RULES.</p><h1>Find your<br><em>next favourite.</em></h1><p class="sub">Discover independent music from a huge catalogue of free-to-stream tracks.</p>
+      <div class="searchbox"><span>⌕</span><input id="searchInput" placeholder="Artists, tracks, moods..." autocomplete="off"><button id="searchBtn">Search</button></div>
+    </section>
+    <section class="section"><div class="sectionhead"><div><p class="eyebrow">PICK YOUR VIBE</p><h2>Explore genres</h2></div></div><div class="genres">
+      <button data-genre="pop">Pop</button><button data-genre="rock">Rock</button><button data-genre="hip hop">Hip-hop</button><button data-genre="electronic">Electronic</button><button data-genre="indie">Indie</button><button data-genre="jazz">Jazz</button><button data-genre="ambient">Chill</button><button data-genre="metal">Metal</button>
+    </div></section>
+    <section class="section"><div class="sectionhead"><div><p class="eyebrow">START LISTENING</p><h2 id="resultsTitle">Popular discoveries</h2></div><button id="refreshBtn" class="textbtn">Refresh ↻</button></div><div id="status" class="status">Add your free Jamendo API key in settings to start exploring.</div><div id="tracks" class="tracks"></div></section>
+    <section class="section"><div class="sectionhead"><div><p class="eyebrow">YOUR COLLECTION</p><h2>Liked tracks</h2></div></div><div id="liked" class="tracks compact"><p class="empty">Tracks you like will show up here.</p></div></section>
+    <section class="section"><div class="sectionhead"><div><p class="eyebrow">ON THIS DEVICE</p><h2>Your own music</h2></div><label class="textbtn upload">＋ Add files<input id="localFiles" type="file" accept="audio/*" multiple hidden></label></div><div id="localList" class="tracks compact"><p class="empty">Add audio files stored on your iPhone or computer.</p></div></section>
+  </main>
+  <footer><span>FREEWAVE</span><span>Independent music discovery</span></footer>
+</div>
+<div id="player" class="player hidden"><img id="nowArt" src="icon.svg" alt=""><div class="now"><b id="nowTitle">Nothing playing</b><small id="nowArtist">Choose a track to begin</small><div class="progress"><span id="progressFill"></span></div></div><button id="prevBtn" aria-label="Previous">|◀</button><button id="playBtn" aria-label="Play or pause">▶</button><button id="nextBtn" aria-label="Next">▶|</button></div>
+<audio id="audio" preload="none"></audio>
+<div id="settings" class="modal hidden"><div class="modalcard"><button id="closeSettings" class="close">×</button><p class="eyebrow">SETUP</p><h2>Connect free music</h2><p>Freewave uses Jamendo's independent-music catalogue. Create a free developer account and paste your client ID below.</p><a href="https://developer.jamendo.com/" target="_blank" rel="noreferrer">Get a free Jamendo client ID ↗</a><label class="fieldlabel" for="clientId">Jamendo client ID</label><input id="clientId" placeholder="Paste client ID"><button id="saveKey" class="primary">Save on this device</button><p class="note">Your key is stored only in this browser. Track licences vary; each track remains subject to its creator's licence.</p></div></div>
+<script src="app.js"></script>
+</body></html>
